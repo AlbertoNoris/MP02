@@ -32,7 +32,7 @@ session_start();
       <div class=" container fixed-top" id="navbar">
       <nav class="navbar navbar-dark navbar-expand-md py-1" id="upper-nav">
         <div class="container-fluid">
-          <a class="navbar-brand me-auto" href="../Home/index.php" id="titolo">
+          <a class="navbar-brand me-auto" href="index.php" id="titolo">
                  <img src="../Images/logo.jpg" id="logae">
               INTERSECTION
           </a>
@@ -44,7 +44,7 @@ session_start();
                   IT
               </a>
               <ul id="lang-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenu">
-                <li><a class="dropdown-item" href="../Errore/index.php?er=0">EN</a></li>
+                <li><a class="dropdown-item" href="errore.php?er=0">EN</a></li>
               </ul>
             </div>
           </div> 
@@ -54,14 +54,14 @@ session_start();
                 <?php
                 if(!isset($_SESSION['uid']))
                 {
-                  $logged="<a class='nav-link text-uppercase text-black' href='../Login/index.php'><i class='fa-solid fa-user'></i> Login</a>";
+                  $logged="<a class='nav-link text-uppercase text-black' href='login.php'><i class='fa-solid fa-user'></i> Login</a>";
                 }
                 else
                 {
                   $uid=$_SESSION['uid'];
                   $sa=$_SESSION['sa'];
                   $username=$_SESSION['user'];
-                  $logged="<a class='nav-link text-uppercase text-black' href='../Utenti/index.php?uid=".$uid."&sa=".$sa."'><i class='fa-solid fa-user'></i> ".$username."</a>";
+                  $logged="<a class='nav-link text-uppercase text-black' href='utente.php?uid=".$uid."&sa=".$sa."'><i class='fa-solid fa-user'></i> ".$username."</a>";
                 }
                 echo $logged;
                 ?>   
@@ -74,49 +74,15 @@ session_start();
     </div>
 
 <!--BODY-->
-    <div class="container error-container">
-    <?php
-                if(!isset($_GET['er']) || $_GET['er']==0)
-                {
-                    echo "<h1> Qualcosa non è andato a buon fine, stiamo lavorando per risolvere il problema! <i class='fa-solid fa-person-digging'></i></h1>";
-                }
-                else if( $_GET['er']==1)
-                {
-                    echo "<h1><i class='fa-solid fa-triangle-exclamation'></i> La tua email risulta essere già associata a un utente registrato</h1>";
-                }
-                else if( $_GET['er']==2)
-                {
-                    echo "<h1><i class='fa-solid fa-triangle-exclamation'></i> Il tuo nome utente risulta essere già associato a un utente registrato</h1>";
-                }
-                else if( $_GET['er']==3)
-                {
-                    echo "<h1><i class='fa-solid fa-triangle-exclamation'></i> La tua password risulta essere già associata a un utente registrato</h1>";
-                }
-                else if( $_GET['er']==4)
-                {
-                    echo "<h1><i class='fa-solid fa-triangle-exclamation'></i> La tua partita IVA risulta essere già associata a un utente registrato</h1>";
-                }
-                else if( $_GET['er']==8)
-                {
-                    echo "<h1><i class='fa-solid fa-triangle-exclamation'></i> La tua email non risulta essere associata a un utente registrato </h1>";
-                }
-                else if( $_GET['er']==9)
-                {
-                    echo "<h1><i class='fa-solid fa-triangle-exclamation'></i> La tua password risulta essere errata </h1>";
-                }
-                else
-                {
-                    echo "<h1> Qualcosa è andato storto, stiamo lavorando per risolverlo! <i class='fa-solid fa-person-digging'></i></h1>";
-                }
-                
-                
-    ?>
-    <a id="back-home" href="../Home/index.php"><button id="tornaHome">Torna alla home</button></a>
-    </div>
-
-
+      <section id="section1">
+        <div class="container">
+          <br>
+          <h2 class="text-uppercase text-black spaced">BODY</h2>
+          <br>
+        </div>
+      </section>
 <!--FOOTER-->
-<footer class="text-center text-white">
+      <footer class="text-center text-white">
         <div class="grid" id="footer-grid">
           <div class="row">
             <div class="col-md-1"></div>

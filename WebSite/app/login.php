@@ -32,7 +32,7 @@ session_start();
       <div class=" container fixed-top" id="navbar">
       <nav class="navbar navbar-dark navbar-expand-md py-1" id="upper-nav">
         <div class="container-fluid">
-          <a class="navbar-brand me-auto" href="../Home/index.php" id="titolo">
+          <a class="navbar-brand me-auto" href="index.php" id="titolo">
                  <img src="../Images/logo.jpg" id="logae">
               INTERSECTION
           </a>
@@ -44,7 +44,7 @@ session_start();
                   IT
               </a>
               <ul id="lang-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenu">
-                <li><a class="dropdown-item" href="../Errore/index.php?er=0">EN</a></li>
+                <li><a class="dropdown-item" href="errore.php?er=0">EN</a></li>
               </ul>
             </div>
           </div> 
@@ -54,14 +54,14 @@ session_start();
                 <?php
                 if(!isset($_SESSION['uid']))
                 {
-                  $logged="<a class='nav-link text-uppercase text-black' href='../Login/index.php'><i class='fa-solid fa-user'></i> Login</a>";
+                  $logged="<a class='nav-link text-uppercase text-black' href='login.php'><i class='fa-solid fa-user'></i> Login</a>";
                 }
                 else
                 {
                   $uid=$_SESSION['uid'];
                   $sa=$_SESSION['sa'];
                   $username=$_SESSION['user'];
-                  $logged="<a class='nav-link text-uppercase text-black' href='../Utenti/index.php?uid=".$uid."&sa=".$sa."'><i class='fa-solid fa-user'></i> ".$username."</a>";
+                  $logged="<a class='nav-link text-uppercase text-black' href='utente.php?uid=".$uid."&sa=".$sa."'><i class='fa-solid fa-user'></i> ".$username."</a>";
                 }
                 echo $logged;
                 ?>   
@@ -73,39 +73,30 @@ session_start();
       </nav>
     </div>
 
-<!--BODY-->      
-      <a class="anchor" name="post"></a>
-      <section id="section1">
-        <div class="container">
-          <br>
-          <h2 class="text-uppercase text-black spaced">SECTION 1</h2>
-          <br>
-        </div>
-      </section>
-
-      <section id="section2">
-        <div class="container">
-          <br>
-          <h2 class="text-uppercase text-black spaced">SECTION 2</h2>
-          <br>
-        </div>
-      </section>
-
-      <section id="section3">
-        <div class="container">
-          <br>
-          <h2 class="text-uppercase text-black spaced">SECTION 3</h2>
-          <br>
-        </div>
-      </section>
-
-      <section id="section4">
-        <div class="container">
-          <br>
-          <h2 class="text-uppercase text-black spaced">SECTION 4</h2>
-          <br>
-        </div>
-      </section>
+<!--BODY-->
+      <div id="content">
+        <form name="formLogin" action="../PHP/Login.php" method="POST" class="form-signin bg-light">
+          <div class="container m-3">
+            <h4 class="text-uppercase gold-text mb-3">Benvenuti</h4>         
+            <div>
+              <label for="email">Email</label> <br>
+              <input type="text" id="email" name="email" placeholder="Inserisci la tua email" maxlength="30" size="30">
+            </div>
+            <br>
+            <div>
+              <label for="password">Password</label> <br>
+              <input type="text" id="password" name="password" placeholder="Password" maxlength="30" size="30">
+            </div>
+            <br><br>
+            <div>
+              <a class="bg-sm" href="registrazione.php">Crea Nuovo Account</a>
+              <br> 
+              <a class="bg-sm" href="registrazioneAziendale.php">Crea Nuovo Account Aziendale</a>
+            </div>
+            <h4><button id="login-button" name="loginButton" type="submit" class="btn-lg" >Login</button></h4>
+          </div>
+        </form>
+      </div>
 
 <!--FOOTER-->
       <footer class="text-center text-white">
