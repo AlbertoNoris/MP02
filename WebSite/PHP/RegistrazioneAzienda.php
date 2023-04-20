@@ -8,7 +8,7 @@ $dbconn = pg_connect("host=containers-us-west-28.railway.app port=5622 dbname=ra
     <?php 
     if(!(isset($_POST["registrationButton"])))
     {
-        header("Location: ../Home/index.php");
+        header("Location: index.php");
     }
     else
     {
@@ -19,7 +19,7 @@ $dbconn = pg_connect("host=containers-us-west-28.railway.app port=5622 dbname=ra
         $r=pg_query_params($dbconn,$q2,array($email));
         if(($line=pg_fetch_array($result,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($r,null,PGSQL_ASSOC)))
         {
-          header("Location: ../Errore/index.php?er=1");
+          header("Location: errore.php?er=1");
         }
         else
         {
@@ -30,7 +30,7 @@ $dbconn = pg_connect("host=containers-us-west-28.railway.app port=5622 dbname=ra
             $r1=pg_query_params($dbconn,$q4,array($user));
             if(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($r1,null,PGSQL_ASSOC)))
             {
-              header("Location: ../Errore/index.php?er=2");
+              header("Location: errore.php?er=2");
             }  
             else
             {
@@ -41,7 +41,7 @@ $dbconn = pg_connect("host=containers-us-west-28.railway.app port=5622 dbname=ra
                 $r2=pg_query_params($dbconn,$q6,array($password));
                 if(($line=pg_fetch_array($result2,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($r2,null,PGSQL_ASSOC)))
                 {
-                  header("Location: ../Errore/index.php?er=3");
+                  header("Location: errore.php?er=3");
                 }
                 else
                 {
@@ -50,7 +50,7 @@ $dbconn = pg_connect("host=containers-us-west-28.railway.app port=5622 dbname=ra
                   $result7=pg_query_params($dbconn,$q7,array($iva));
                   if(($line=pg_fetch_array($result7,null,PGSQL_ASSOC)))
                   {
-                    header("Location: ../Errore/index.php?er=4");
+                    header("Location: errore.php?er=4");
                   }
                   else
                   {
@@ -75,7 +75,7 @@ $dbconn = pg_connect("host=containers-us-west-28.railway.app port=5622 dbname=ra
                       if(isset($result7)) pg_free_result($result7);
                       if(isset($data)) pg_free_result($data);
                       pg_close($dbconn); 
-                      header("Location: ../Login/index.php");
+                      header("Location: login.php");
                     }
                     }
                 }

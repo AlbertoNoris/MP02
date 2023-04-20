@@ -35,7 +35,7 @@ session_start();
       <div class=" container fixed-top" id="navbar">
       <nav class="navbar navbar-dark navbar-expand-md py-1" id="upper-nav">
         <div class="container-fluid">
-          <a class="navbar-brand me-auto" href="../Home/index.php" id="titolo">
+          <a class="navbar-brand me-auto" href="index.php" id="titolo">
                  <img src="../Images/logo.jpg" id="logae">
               INTERSECTION
           </a>
@@ -47,7 +47,7 @@ session_start();
                   IT
               </a>
               <ul id="lang-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenu">
-                <li><a class="dropdown-item" href="../Errore/index.php?er=0">EN</a></li>
+                <li><a class="dropdown-item" href="errore.php?er=0">EN</a></li>
               </ul>
             </div>
           </div> 
@@ -57,14 +57,14 @@ session_start();
                 <?php
                 if(!isset($_SESSION['uid']))
                 {
-                  $logged="<a class='nav-link text-uppercase text-black' href='../Login/index.php'><i class='fa-solid fa-user'></i> Login</a>";
+                  $logged="<a class='nav-link text-uppercase text-black' href='login.php'><i class='fa-solid fa-user'></i> Login</a>";
                 }
                 else
                 {
                   $uid=$_SESSION['uid'];
                   $sa=$_SESSION['sa'];
                   $username=$_SESSION['user'];
-                  $logged="<a class='nav-link text-uppercase text-black' href='../Utenti/index.php?uid=".$uid."&sa=".$sa."'><i class='fa-solid fa-user'></i> ".$username."</a>";
+                  $logged="<a class='nav-link text-uppercase text-black' href='utente.php?uid=".$uid."&sa=".$sa."'><i class='fa-solid fa-user'></i> ".$username."</a>";
                 }
                 echo $logged;
                 ?>   
